@@ -54,4 +54,20 @@ public class Person extends Record {
                 ", phone='" + phone + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean contains(String str) {
+        return firstName.contains(str)
+                || lastName.contains(str)
+                || email.contains(str)
+                || phone.contains(str);
+    }
+
+    @Override
+    public void askData() {
+        firstName = Main.askString("First Name");
+        lastName = Main.askString("Last Name");
+        email = Main.askString("Email");
+        phone = Main.askPhone("Phone");
+    }
 }

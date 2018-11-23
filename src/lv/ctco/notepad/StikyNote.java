@@ -22,4 +22,14 @@ public class StikyNote extends Record {
                 ", text='" + text + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean contains(String str) {
+        return text.toLowerCase().contains(str);
+    }
+
+    @Override
+    public void askData() {
+        text = Main.askString("Text");
+    }
 }

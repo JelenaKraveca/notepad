@@ -3,7 +3,7 @@ package lv.ctco.notepad;
 /**
  * Created by yelena.kraveca on 11/23/2018.
  */
-public class Record {
+public abstract class Record {
     private static  int counter = 0;
     private int id;
 
@@ -12,8 +12,13 @@ public class Record {
         id = counter;
     }
 
+    public abstract boolean contains(String str);
+
+    public abstract void  askData();
+
     public int getId() {
         return id;
     }
+
 
 }

@@ -13,13 +13,16 @@ public class Main {
           System.out.println("Please enter command: ");
           String cmd = scanner.next();
           switch (cmd){
+              case "search":
+                  search();
+                  break;
               case "cp":
               case "createPerson":
-                  createPerson();
+                  createRecord(new Person());
                   break;
               case "cn":
               case "createStickyNote":
-                  createStickyNote();
+                  createRecord(new StikyNote());
                   break;
               case "list":
                   showList();
@@ -61,37 +64,38 @@ public class Main {
             showList();
         }
 
+    private static void createRecord(Record record){
+        record.askData();
+        records.add(record);
+        System.out.println(record);
+    }
 
-    private static void createPerson() {
-
+ /*   private static void createPerson() {
         Person p = new Person();
-        String in;
-
-        String firstName = askString("First Name");
-        p.setFirstName(firstName);
-
-        String lastName = askString("Last Name");
-        p.setLastName(lastName);
-
-        String email = askString("Email");
-        p.setEmail(email);
-
-        String phone = askPhone("Phone");
-        p.setPhone(phone);
-
+        p.askData();
         records.add(p);
     }
-
     private static void createStickyNote() {
-
         StikyNote n = new StikyNote();
-        String in;
-
-        String note = askString("Text");
-        n.setText(note);
-
+        n.askData();
         records.add(n);
     }
+*/
+    private static void search() {
+        String ss = askString("What do you want to find?");
+        records.stream()
+                .filter(r -> r.contains(ss))
+               // .forEach(r -> System.out.println(r));
+                .forEach(System.out::println);
+
+
+    /*    for (Record r : records){
+            if (r.contains(ss)){
+                System.out.println(r);
+            }
+        }*/
+    }
+
 
 
     public static String askString(String msg) {
