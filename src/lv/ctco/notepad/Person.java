@@ -3,23 +3,14 @@ package lv.ctco.notepad;
 /**
  * Created by yelena.kraveca on 11/16/2018.
  */
-public class Person {
-    private static  int counter = 0;
-    private int id;
+public class Person extends Record {
     private String firstName;
     private String lastName;
     private String email;
     private String phone;
 
 
-    public Person(){
-        counter++;
-        id = counter;
-    }
 
-    public int getId() {
-        return id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -56,7 +47,7 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "id=" + id +
+                "id=" + getId() +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
